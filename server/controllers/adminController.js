@@ -1,5 +1,7 @@
 const AdminModel= require("../models/adminModel");
-
+const transporter= require("../middleware/nodemailer");
+const RandomPassword= require("../middleware/randompass");
+const EmpModel= require("../models/employeeModel");
 
 const adminLogin=async(req, res)=>{
     const {userid, password} = req.body;
@@ -23,7 +25,38 @@ const adminLogin=async(req, res)=>{
       
 }
 
+const userCreate=async(req, res)=>{
+    
+   const  {username,designation,email} = req.body;
+   const myPass= RandomPassword();
+   
+
+   const mailOptions = {
+    from: "rajmishra3@gmail.com", // Sender email
+    to:email,                          // Recipient email
+    subject:"Your Company Work Detail Account",                     // Email subject
+    text:`Dear ${username} Your Account created with password : ${myPass} 
+     You can login using with your Email account
+    `
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    const EmpData= await EmpModel.create({
+      empname:username,
+      designation:designation, 
+      email:email,
+      password:myPass
+    })
+
+    res.status(200).json({ success: true, message: 'Email sent', info });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
 
 module.exports ={
-    adminLogin
+    adminLogin,
+    userCreate
 }

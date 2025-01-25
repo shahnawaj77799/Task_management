@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Login from "./pages/Login";
-
-
+import AdminDashBoard from "./pages/AdminDashBoard";
+import CreateUser from "./pages/CreateUser";
 
 const App=()=>{
   return(
@@ -10,12 +10,12 @@ const App=()=>{
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Layout/>}>
-    <Route index element={<Login/>}/>
-    <Route path="login" element={<Login/>}/>
-
-    
-
-    </Route>
+      <Route index element={<Login/>}/>
+      <Route path="login" element={<Login/>}/>
+      <Route path="admindashboard" element={<AdminDashBoard/>}>
+           <Route path="createuser" element={<CreateUser/>}/>
+      </Route>    
+   </Route>
 
     </Routes>
     </BrowserRouter>

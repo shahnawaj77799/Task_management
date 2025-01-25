@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import {message} from "antd";
+import { useNavigate } from "react-router-dom";
 const Login=()=>{
   const [userid, setUserID] = useState("");
   const [password, setPassword]=useState("");
   const [usertype, setUsertype] =useState("");
+  const navigate= useNavigate();
 
  const handleSubmit=async()=>{
   
@@ -17,7 +19,12 @@ const Login=()=>{
             console.log(response.data);
             if (response.status==200)
             {
+              console.log(response.data);
+              localStorage.setItem("adminname", response.data.username);
+              localStorage.setItem("adminid", response.data.userid);
               message.success("Login Succesfully!");
+              navigate("/admindashboard");
+
             }
            } catch (error) {
             message.error(error.response.data.msg);

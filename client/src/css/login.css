@@ -1,8 +1,4 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
     background-color: #f0f2f5;
     font-family: Arial, sans-serif;
@@ -44,7 +40,7 @@ body {
     color: #555;
   }
   
-  input[type="text"], input[type="password"] {
+  input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 5px;
     margin: 5px 0;
@@ -88,13 +84,13 @@ body {
   /* General header styling */
 .header {
     display: flex;
-    width: 218vh;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #098196;
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
   }
   
   /* Logo area */
@@ -170,3 +166,48 @@ body {
     text-align: center;
     color: wheat;
   }
+
+  #adminNameDisplay
+  {
+    padding: 10px;
+    background-color: lightgreen;
+    color: rgb(212, 62, 62);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  #AdminData
+  {
+    display: flex;
+  }
+  #AdminleftMenu
+  {
+    background-color:  #b1eff6;
+    width: 15%;
+    padding: 20px;
+  }
+  #AdminRightData
+  {
+    padding: 20px;
+    width: 85%;
+  }
+
+  .AdminmenuColor
+  {
+    color: rgb(109, 105, 105);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .AdminmenuColor:hover
+  {
+    color: rgb(10, 174, 192);
+    text-decoration:underline;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
