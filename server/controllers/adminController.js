@@ -2,17 +2,16 @@ const AdminModel= require("../models/adminModel");
 const transporter= require("../middleware/nodemailer");
 const RandomPassword= require("../middleware/randompass");
 const EmpModel= require("../models/employeeModel");
+const TaskModel= require("../models/taskModel");
 
 const adminLogin=async(req, res)=>{
     const {userid, password} = req.body;
     try {
         const Admin = await AdminModel.findOne({userid:userid});
-        
         if (!Admin)
         {
             res.status(400).json({msg:"Invalid user Id"});
         }
-
         if(Admin.password!=password)
         {
             res.status(400).json({msg:"Invalid password"});
@@ -48,7 +47,6 @@ const userCreate=async(req, res)=>{
       email:email,
       password:myPass
     })
-
     res.status(200).json({ success: true, message: 'Email sent', info });
   } catch (error) {
     console.error('Error sending email:', error);
@@ -56,7 +54,39 @@ const userCreate=async(req, res)=>{
   }
 }
 
+
+const userDisplay=async(req, res)=>{
+     try {
+      const User= await EmpModel.find();
+      res.status(200).send(User);
+     } catch (error) {
+         console.log(error);
+     }
+}
+
+
+const taskAssignSave=async(req, res)=>{
+  const { empid,tasktitle, taskdescription,  compdays} = req.body;
+  
+  try {
+      const Employee = await TaskModel.create({
+        tasktitle:tasktitle,
+        taskdescription:taskdescription, 
+        completiondays:compdays,
+        empid:empid
+      })
+
+      res.status(200).send("Task Succesfully Assigned!");
+  } catch (error) {
+     console.log(error);
+  }
+  console.log(req.body);
+  res.send("OKK");
+}
+
 module.exports ={
     adminLogin,
-    userCreate
+    userCreate,
+    userDisplay,
+    taskAssignSave
 }

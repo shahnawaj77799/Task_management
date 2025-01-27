@@ -14,6 +14,8 @@ const AdminDashBoard=()=>{
           <div id="AdminData">
           <div id="AdminleftMenu">
               <Link to="createuser" className="AdminmenuColor">Create User</Link>
+               <br /> <br/>
+              <Link to="assigntask" className="AdminmenuColor">Assign Task</Link>
           </div>
           <div id="AdminRightData">
                  <Outlet/>
