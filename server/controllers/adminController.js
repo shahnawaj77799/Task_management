@@ -80,8 +80,6 @@ const taskAssignSave=async(req, res)=>{
   } catch (error) {
      console.log(error);
   }
-  console.log(req.body);
-  res.send("OKK");
 }
 
 module.exports ={

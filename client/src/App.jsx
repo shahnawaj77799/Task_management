@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import CreateUser from "./pages/CreateUser";
 import AssignTask from "./pages/AssignTask";
+import UserDashBoard from "./pages/UserDashBoard";
+import DisplayUserTask from "./pages/DisplayUserTask";
 
 const App=()=>{
   return(
@@ -16,7 +18,12 @@ const App=()=>{
       <Route path="admindashboard" element={<AdminDashBoard/>}>
            <Route path="createuser" element={<CreateUser/>}/>
            <Route path="assigntask" element={<AssignTask/>}/>
-      </Route>    
+      </Route>  
+      <Route path="userdashboard" element={<UserDashBoard/>}>
+          <Route path="displaytask" element={<DisplayUserTask/>}/>
+
+      </Route>
+
    </Route>
 
     </Routes>

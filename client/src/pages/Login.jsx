@@ -30,6 +30,29 @@ const Login=()=>{
             message.error(error.response.data.msg);
            }
       }
+      else 
+      if (usertype=="employee")
+      {
+         try {
+             
+          let api="http://localhost:8080/employee/employeelogin";
+          const response= await axios.post(api, {userid:userid, password:password});
+          console.log(response.data);
+           if (response.status==200)
+           {
+             localStorage.setItem("empname", response.data.empname)
+             localStorage.setItem("empemail",  response.data.email)
+             localStorage.setItem("empid", response.data._id);
+              message.success("Login Succesfully!");
+
+             navigate("/userdashboard")
+           }
+
+         } catch (error) {
+          message.error(error.response.data.msg);
+         }
+
+      }
 
 
  }
