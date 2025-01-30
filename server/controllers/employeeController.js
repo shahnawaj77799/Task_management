@@ -1,5 +1,5 @@
 const EmpModel= require("../models/employeeModel");
-
+const TaskModel= require("../models/taskModel");
 
 const emploginCheck=async(req, res)=>{
     const { userid, password} = req.body;
@@ -19,7 +19,30 @@ const emploginCheck=async(req, res)=>{
     }
 }
 
+const empTaskDisplay=async(req, res)=>{
+   const {empid}=req.body;
+   try {
+        const Task= await TaskModel.find({empid:empid});
+        res.status(200).send(Task);
+   } catch (error) {
+      console.log(error);
+   }
+}
+
+
+const empTaskSubmit=async(req, res)=>{
+    const { taskid, taskstatus } = req.body;
+    try {
+          const Task= await TaskModel.findByIdAndUpdate(taskid,{taskstatus:taskstatus, empreport:"submited"});          
+          res.status(200).send("Task Successfully submited!");
+    
+        } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports={
-    emploginCheck
+    emploginCheck,
+    empTaskDisplay,
+    empTaskSubmit
 }
