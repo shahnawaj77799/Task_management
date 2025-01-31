@@ -16,7 +16,10 @@ const AdminDashBoard=()=>{
               <Link to="createuser" className="AdminmenuColor">Create User</Link>
                <br /> <br/>
               <Link to="assigntask" className="AdminmenuColor">Assign Task</Link>
-          </div>
+              <br /> <br/>
+              <Link to="userreport" className="AdminmenuColor">Show Report</Link>
+       
+           </div>
           <div id="AdminRightData">
                  <Outlet/>
           </div>

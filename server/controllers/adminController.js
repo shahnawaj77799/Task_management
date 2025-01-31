@@ -82,9 +82,33 @@ const taskAssignSave=async(req, res)=>{
   }
 }
 
+
+const userReport=async(req, res)=>{
+   try {
+         const Task = await TaskModel.find().populate("empid");
+         res.status(200).send(Task);
+   } catch (error) {
+      console.log(error);
+   }
+}
+
+
+const taskReAssign=async(req, res)=>{
+  const { taskid}= req.body;
+  try {
+       const Data= await TaskModel.findByIdAndUpdate(taskid, {empreport:'pending'})
+       res.send({msg:"Task succesfully Re Assigned!"});
+      } catch (error) {
+     console.log(error);
+  }
+ 
+}
+
 module.exports ={
     adminLogin,
     userCreate,
     userDisplay,
-    taskAssignSave
+    taskAssignSave,
+    userReport,
+    taskReAssign
 }

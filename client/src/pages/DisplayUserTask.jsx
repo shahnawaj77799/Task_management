@@ -52,6 +52,7 @@ const DisplayUserTask=()=>{
             <td> {key.completiondays}</td>
             <td>
             <Form.Select size="sm" name="taskStatus" value={taskStatus} onChange={(e)=>{setTaskStatus(e.target.value)}}>
+               <option> Select Task</option>
                <option value="Fully Completed">Fully Completed</option>
                <option value="Partial Completed">Partial Completed</option>
                <option value="No Completed">No Completed</option>
