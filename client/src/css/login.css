@@ -74,7 +74,7 @@ body {
   }
   
   div.d-flex {
-    width: 300px;
+    width: 600px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -169,6 +169,7 @@ body {
 
   #adminNameDisplay
   {
+    display: flex;
     padding: 10px;
     background-color: lightgreen;
     color: rgb(212, 62, 62);
@@ -211,3 +212,33 @@ body {
     text-transform: uppercase;
   }
   
+
+
+  .logout-button {
+    padding: 8px 16px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .logout-button:hover {
+    background-color: #C44536;
+  }
+
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .admin-header h2 {
+    margin: 0;
+  }

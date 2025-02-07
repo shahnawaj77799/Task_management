@@ -31,7 +31,7 @@ const userCreate=async(req, res)=>{
    
 
    const mailOptions = {
-    from: "rajmishra3@gmail.com", // Sender email
+    from: "shahnawajali323@gmail.com", // Sender email
     to:email,                          // Recipient email
     subject:"Your Company Work Detail Account",                     // Email subject
     text:`Dear ${username} Your Account created with password : ${myPass} 

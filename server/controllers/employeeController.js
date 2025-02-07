@@ -40,9 +40,34 @@ const empTaskSubmit=async(req, res)=>{
         console.log(error);
     }
 }
+const ChangePassword=async(req,res)=>{
+  const {userid,oldpassword,newpassword,confirmpassword}=req.body;
+  try {
+    const User=await EmpModel.findById(userid)
+    // console.log(resetpass)
+    if(User.password!=oldpassword)
+    {
+        res.status(400).send({msg:"Old password not matches"})
+    }
+    else if(newpassword!=confirmpassword)
+    {
+        res.status(400).send({msg:"newpassword and old password not matches"})
+    }
+    else
+    {
+      const changedpass=await EmpModel.findByIdAndUpdate(userid,{password:newpassword});  
+      res.status(200).send({msg:"password changed"})
+    }
+    
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
 
 module.exports={
     emploginCheck,
     empTaskDisplay,
-    empTaskSubmit
+    empTaskSubmit,
+    ChangePassword
 }
