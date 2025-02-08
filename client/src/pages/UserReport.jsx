@@ -129,7 +129,7 @@ const UserReport = () => {
   const [mydata, setMydata] = useState([]);
 
   const loadData = async () => {
-    let api = "http://localhost:8080/admin/showreport";
+    let api = "https://task-management-q2u3.onrender.com/admin/showreport";
     try {
       const response = await axios.get(api);
       setMydata(response.data);
@@ -144,7 +144,7 @@ const UserReport = () => {
   }, [])
 
   const reassignTask = async (taskid) => {
-    let api = "http://localhost:8080/admin/taskreassing";
+    let api = "https://task-management-q2u3.onrender.com/admin/taskreassing";
     try {
       const response = await axios.post(api, { taskid: taskid });
       message.success(response.data.msg);

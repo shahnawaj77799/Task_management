@@ -280,7 +280,7 @@ const AssignTask = () => {
   };
 
   const handleSubmit = async () => {
-    let api = "http://localhost:8080/admin/assigntask";
+    let api = "https://task-management-q2u3.onrender.com/admin/assigntask";
     try {
       await axios.post(api, { empid: empId, ...input });
       alert("Task assigned successfully!");
@@ -291,7 +291,7 @@ const AssignTask = () => {
   };
 
   const loadData = async () => {
-    let api = "http://localhost:8080/admin/assigntaskdisplay";
+    let api = "https://task-management-q2u3.onrender.com/admin/assigntaskdisplay";
     try {
       const response = await axios.get(api);
       setMydata(response.data);
