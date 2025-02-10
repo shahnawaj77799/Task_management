@@ -176,7 +176,7 @@ const Footer = () => {
             <h5 className="text-white">Contact</h5>
             <ul className="list-unstyled">
               <li className="text-white-50">Email: shahnawajali323@gmail.com</li>
-              <li className="text-white-50">Phone: +197779933899</li>
+              <li className="text-white-50">Phone: +917779933899</li>
               <li className="text-white-50">Address: Jahangirabad, Bhopal, mp India</li>
             </ul>
           </div>
