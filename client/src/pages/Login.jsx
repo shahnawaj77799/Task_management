@@ -463,6 +463,7 @@
 // export default Login;
 
 
+
 import React, { useState } from "react";
 import axios from "axios";
 import { message } from "antd";
@@ -521,7 +522,7 @@ const Login = () => {
   return (
     <>
       <div className="container d-flex justify-content-center align-items-center vh-100">
-        <div className="w-100" style={{ maxWidth: "400px", padding: "15px" }}>
+        <div className="w-100 p-3">
           {/* Logo Section */}
           <div className="text-center mb-4">
             <img
@@ -580,7 +581,7 @@ const Login = () => {
       <style jsx="true">{`
         @media (max-width: 576px) {
           .w-100 {
-            padding: 10px;
+            padding: 15px;
             max-width: 100%;
           }
 
@@ -643,4 +644,3 @@ const Login = () => {
 };
 
 export default Login;
-
